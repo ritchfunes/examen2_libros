@@ -1,0 +1,11 @@
+
+<ul>
+<% @genders.each do |gender| %>
+  <a href="/show_gender_books?gender_id=<%=gender.id%>"><li><%= gender.nombre %></li></a>
+  <ul>
+    <% gender.books.each do |book| %>
+      <li><%= book.nombre %></li>
+    <% end %>
+  </ul>
+<% end %>
+</ul>

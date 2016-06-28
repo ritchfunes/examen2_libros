@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h1>Lista de Libros</h1>
+
+<table> 
+<tr>
+
+<td><a href="/show_genders">Libros por Generor</a></td>&nbsp &nbsp &nbsp
+<td &nbsp ><a href="/show_authors">Libros por Autor</a>
+  </td>
+
+</tr>
+<tr>
+
+<td>
+<%= link_to 'Agregar Autores', authors_path %>
+</td>
+
+
+<td>
+<%= link_to 'Agregar Generos', genders_path %>
+</td>
+
+
+</tr>
+
+
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Author</th>
+      <th>Gender</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.nombre %></td>
+        <td><%= book.author.nombre %></td>
+        <td><%= book.gender.nombre %></td>
+        <td><%= book.descripcion %></td>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>
+

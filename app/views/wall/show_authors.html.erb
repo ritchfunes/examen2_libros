@@ -1,0 +1,17 @@
+
+<ul>
+<% @authors.each do |author| %>
+  <a href="/show_author_books?author_id=<%=author.id%>"><li><%= author.nombre %></li></a>
+  <ul>
+    <% author.books.each do |book| %>
+     
+      <li><%= book.nombre %></li>
+   
+    <% end %>
+  <% if @authors.size >= 3 %>
+<em>No tiene libros el autor </em>
+     <% end %>  
+
+</ul>
+<% end %>
+</ul>
